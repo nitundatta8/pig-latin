@@ -14,16 +14,18 @@ function translate(input) {
     var piglatinOutput = "";
 
     for(var index = 0; index < words.length; index++) {
-
       var letters = words[index].toLowerCase();
       ending = "";
       output = "";
       endingConsonants = "";
+      vowelFound = false;
 
       for(var index2 = 0; index2 < letters.length; index2++) {
+
         if(!aplhabet.includes(letters[index2])) {
           output += letters[index2];
         }
+        
         else if(letters.length === 1 && vowels.includes(letters[index2])) {
           output += letters[index2];
           ending = "way";
@@ -61,9 +63,9 @@ function translate(input) {
           output += letters[index];
         }
       }
-      piglatinOutput += output + ending + " ";
+      piglatinOutput += output + endingConsonants + ending + " ";
     }
-    
+
     return piglatinOutput;
 };
 
@@ -78,3 +80,12 @@ $(document).ready(function() {
       $("#output").text(output);
   }); 
 });
+
+
+// for(var i=0;i<sentence.length;i++){
+  // sentence.forEach(function(char){
+  //    if((!vowels.includes(char)) && (!consonants.includes(char))){
+  //      return sentence;
+  //    }
+  // });
+// }
